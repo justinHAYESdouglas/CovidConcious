@@ -14,5 +14,7 @@ header{
 }
 
 #map-container button{
+  width: 50px;
+  margin: auto;
   border: 2px solid green;
 }
