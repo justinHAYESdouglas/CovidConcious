@@ -20,6 +20,7 @@
   "homepage": "https://github.com/justinHAYESdouglas/LiveCheap#readme",
   "dependencies": {
     "concurrently": "^6.5.1",
+    "connect-session-sequelize": "^7.1.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
@@ -27,7 +28,6 @@
     "if-env": "^1.0.4",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
-    "sequelize": "^6.12.4",
-    "connect-session-sequelize": "^7.1.2"
+    "sequelize": "^6.12.4"
   }
 }

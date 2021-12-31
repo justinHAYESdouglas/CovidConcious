@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS livecheap_db;
+CREATE DATABASE livecheap_db;

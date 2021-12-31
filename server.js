@@ -1,32 +1,34 @@
-// const express = require("express");
-// const path = require("path");
-// const router = express.Router();
-// require('dotenv').config();
+const express = require("express");
+const session = require("express-session");
+require("dotenv").config();
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require("./config/connection");
 
+const PORT = process.env.PORT || 3001;
+const app = express();
 
-// // const nodemailer = require("nodemailer");
-// const cors = require('cors')
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("Public"));
 
-// const PORT = process.env.PORT || 3001;
-// const app = express();
+const sess = {
+  secret: "Capitalism is bad, mmmkay",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
-// // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(cors());
+app.use(session(sess));
 
+app.get('/', function(req, res, next) {
+  res.sendFile(__dirname + "/Public/index.html");
+})
 
-// // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-
-// app.use('/', router);
-
-// app.get("*", function(req, res) {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-//   });
-  
-//   app.listen(PORT, function() {
-//     console.log(`🌎 ==> API server now on port ${PORT}!`);
-//   });
+sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
+    console.log(`🌎 ==> API server now on port ${PORT}!`);
+  });
+});
