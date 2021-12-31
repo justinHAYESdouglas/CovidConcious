@@ -1,0 +1,24 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 30px;
+  width: 65%;
+  border: 5px solid red;
+  color: var(--text-color);
+  background-color:var(--bg-color);
+}
+
+:root{
+  --text-color: #fff;
+  --HL1: #8fd9e2;
+  --HL2: #f9f8bb;
+  --tertiary: #2a4b55;
+  --bg-color: #0e1e22;
+}
