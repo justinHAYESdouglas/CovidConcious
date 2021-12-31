@@ -2,3 +2,17 @@ header{
   width: 100%;
   text-align: center;
 }
+
+#map-container{
+  display: grid;
+  margin: auto;
+  width: 100%;
+  grid-template-rows: repeat(11, 75px);
+  grid-template-columns: repeat(7, 75px);
+  border: 2px solid green;
+
+}
+
+#map-container button{
+  border: 2px solid green;
+}
