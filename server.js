@@ -9,10 +9,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+app.use(express.static("Public"));
 
 const sess = {
   secret: "Capitalism is bad, mmmkay",
@@ -25,6 +22,10 @@ const sess = {
 };
 
 app.use(session(sess));
+
+app.get('/', function(req, res, next) {
+  res.sendFile(__dirname + "/Public/index.html");
+})
 
 sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
