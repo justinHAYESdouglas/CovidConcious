@@ -5,18 +5,18 @@ header{
 
 #map-container{
   display: grid;
-  margin: auto;
   width: 100%;
   grid-template-rows: repeat(8, 75px);
   grid-template-columns: repeat(12, 75px);
+  justify-content: center;
   border: 2px solid green;
-
 }
 
 #map-container button{
   width: 65px;
   height: 65px;
-  border: 2px solid green;
+  cursor: pointer;
+  border: 2px solid blue;
 }
 
 .blank-space{
