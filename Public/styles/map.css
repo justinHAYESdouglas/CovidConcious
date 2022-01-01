@@ -7,14 +7,20 @@ header{
   display: grid;
   margin: auto;
   width: 100%;
-  grid-template-rows: repeat(11, 75px);
-  grid-template-columns: repeat(7, 75px);
+  grid-template-rows: repeat(12, 75px);
+  grid-template-columns: repeat(8, 75px);
   border: 2px solid green;
 
 }
 
 #map-container button{
-  width: 50px;
-  margin: auto;
+  width: 65px;
+  height: 65px;
   border: 2px solid green;
+}
+
+.blank-space{
+  width: 65px;
+  height: 65px;
+  color: var(--text-color);
 }
