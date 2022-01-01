@@ -1,205 +1,209 @@
 [{
   "name": "Alaska",
-  "abbr": "ak",
+  "abbr": "AK",
   "pos": 1
 },
 {
  "name": "Main",
- "abbr": "me",
+ "abbr": "ME",
  "pos": 2
 },{
- "name": "Wisconsin",
- "abbr": "wi",
- "pos": 3
+  "name": "Vermont",
+  "abbr": "VT",
+  "pos": 4
 },{
- "name": "Vermont",
- "abbr": "vt",
- "pos": 4
+  "name": "New Hampshire",
+  "abbr": "NH",
+  "pos": 5
 },{
- "name": "New Hampshire",
- "abbr": "nh",
- "pos": 5
-},{
- "name": "Washington",
- "abbr": "wa",
- "pos": 6
-},{
- "name": "Idaho",
- "abbr": "id",
- "pos": 7
-},{
- "name": "Montana",
- "abbr": "mt",
- "pos": 8
-},{
- "name": "North Dakota",
- "abbr": "nd",
- "pos": 9
-},{
+  "name": "Washington",
+  "abbr": "WA",
+  "pos": 6
+ },{
+  "name": "Idaho",
+  "abbr": "ID",
+  "pos": 7
+ },{
+  "name": "Montana",
+  "abbr": "MT",
+  "pos": 8
+ },{
+  "name": "North Dakota",
+  "abbr": "ND",
+  "pos": 9
+ },{
  "name": "Minnesota",
- "abbr": "mn",
+ "abbr": "MN",
  "pos": 10
 },{
- "name": "Illinois",
- "abbr": "il",
- "pos": 11
-},{
- "name": "Michigan",
- "abbr": "mi",
- "pos": 12
-},{
+  "name": "Wisconsin",
+  "abbr": "WI",
+  "pos": 3
+ },{
+  "name": "Michigan",
+  "abbr": "MI",
+  "pos": 12
+ },{
  "name": "New York",
- "abbr": "ny",
+ "abbr": "NY",
  "pos": 13
 },{
  "name": "Massachusetts",
- "abbr": "ma",
+ "abbr": "MA",
  "pos": 14
 },{
  "name": "Oregon",
- "abbr": "or",
+ "abbr": "OR",
  "pos": 15
 },{
  "name": "Nevada",
- "abbr": "nv",
+ "abbr": "NV",
  "pos": 16
 },{
  "name": "Wyoming",
- "abbr": "wy",
+ "abbr": "WY",
  "pos": 17
 },{
  "name": "South Dakota",
- "abbr": "sd",
+ "abbr": "SD",
  "pos": 18
 },{
  "name": "Iowa",
- "abbr": "ia",
+ "abbr": "IA",
  "pos": 19
 },{
- "name": "Alaska",
- "abbr": "ak",
+  "name": "Illinois",
+  "abbr": "IL",
+  "pos": 11
+ },{
+ "name": "Indiana",
+ "abbr": "IN",
  "pos": 20
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Ohio",
+ "abbr": "OH",
  "pos": 21
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Pennsylvania",
+ "abbr": "PA",
  "pos": 22
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "New Jersey",
+ "abbr": "NJ",
  "pos": 23
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Connecticut",
+ "abbr": "CT",
  "pos": 24
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Rhode Island",
+ "abbr": "RI",
  "pos": 25
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "California",
+ "abbr": "CA",
  "pos": 26
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Utah",
+ "abbr": "UT",
  "pos": 27
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Colorado",
+ "abbr": "CO",
  "pos": 28
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Nebraska",
+ "abbr": "NE",
  "pos": 29
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Missouri",
+ "abbr": "MO",
  "pos": 30
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Kentucky",
+ "abbr": "KY",
  "pos": 31
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "West Virginia",
+ "abbr": "WV",
  "pos": 32
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Virginia",
+ "abbr": "VA",
  "pos": 33
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Maryland",
+ "abbr": "MD",
  "pos": 34
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Delaware",
+ "abbr": "DE",
  "pos": 35
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Arizona",
+ "abbr": "AZ",
  "pos": 36
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "New Mexico",
+ "abbr": "NM",
  "pos": 37
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Kansas",
+ "abbr": "KS",
  "pos": 38
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Arkansas",
+ "abbr": "AR",
  "pos": 39
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Tennessee",
+ "abbr": "TN",
  "pos": 40
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "North Carolina",
+ "abbr": "NC",
  "pos": 41
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "South Carolina",
+ "abbr": "SC",
  "pos": 42
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Washington DC",
+ "abbr": "DC",
  "pos": 43
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Oklahoma",
+ "abbr": "OK",
  "pos": 44
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Louisiana",
+ "abbr": "LA",
  "pos": 45
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Mississppi",
+ "abbr": "MS",
  "pos": 46
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Alabama",
+ "abbr": "AL",
  "pos": 47
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Georgia",
+ "abbr": "GA",
  "pos": 48
 },{
- "name": "Alaska",
- "abbr": "ak",
+ "name": "Hawaii",
+ "abbr": "HI",
  "pos": 49
 },{
  "name": "Alaska",
- "abbr": "ak",
+ "abbr": "TX",
  "pos": 50
-}
+},{
+  "name": "Florida",
+  "abbr": "FL",
+  "pos": 51
+ }
 ]
 
 
