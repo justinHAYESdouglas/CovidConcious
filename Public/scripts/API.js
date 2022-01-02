@@ -1,5 +1,5 @@
 // let CovidAPI = process.env.COVIDAPI;
-let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + '29430bfd9a794c83856c585beafdb31b';
+let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + '';
 
 fetch (CovidInfo)
     .then(response =>{
