@@ -10,9 +10,8 @@ body{
   margin: auto;
   padding: 30px;
   width: 65%;
-  border: 5px solid red;
   color: var(--text-color);
-  background-color:var(--bg-color);
+  background-color:#000022 ;
 }
 
 :root{
