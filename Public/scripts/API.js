@@ -1,5 +1,7 @@
-// let CovidAPI = process.env.COVIDAPI;
-let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + '29430bfd9a794c83856c585beafdb31b';
+import {ApiKeys} from './config.js';
+
+console.log(ApiKeys);
+let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.CovidApi;
 
 fetch (CovidInfo)
     .then(response =>{
