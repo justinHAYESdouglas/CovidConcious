@@ -1,9 +1,9 @@
 header{
   width: 50%;
-  height: 75px;
+  padding: 5px;
   position: relative;
+  margin: auto auto 50px auto;
   text-align: center;
-  margin: auto auto 30px auto;
   border: 4px dotted blue;
 }
 
@@ -38,6 +38,7 @@ h1{
 #map-container{
   display: grid;
   width: 100%;
+  margin: auto;
   grid-template-rows: repeat(8, 75px);
   grid-template-columns: repeat(12, 75px);
   justify-content: center;
@@ -56,7 +57,7 @@ h1{
   font-size: 1em;
 }
 
-#map-container button:hover{
+#map-container button:hover, #map-container button:active{
   background-color: var(--HL1);
   transition: ease .3s;
   color: #000;
@@ -67,4 +68,40 @@ h1{
   width: 65px;
   height: 65px;
   color: var(--text-color);
+}
+
+@media screen and (max-width: 1081px){
+  
+  header{
+    width: 100%;
+    
+  }
+
+  #map-container{
+    grid-template-rows: repeat(8, 55px);
+    grid-template-columns: repeat(12, 55px);
+  }
+  
+  #map-container button{
+    width: 45px;
+    height: 45px;
+    font-size: 1em;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 680px){
+  #map-container{
+    grid-template-rows: repeat(8, 45px);
+    grid-template-columns: repeat(12, 30px);
+  }
+  
+  #map-container button{
+    width: 27px;
+    height: 30px;
+    margin-bottom: 35px;
+    font-size: .9em;
+    border-radius: 10px;
+    border: none;
+  }
 }
