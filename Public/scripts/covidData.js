@@ -26,7 +26,7 @@ async function initRetrieveData() {
     const dataArray = await recall.retrieveData();
     console.log(dataArray);
 
-    if(typeof dataArray == "object"){
+    if(typeof dataArray == "object" && dataArray.length > 0){
         console.log("object")
         arrayExists = true;
     }
