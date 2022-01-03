@@ -10,7 +10,7 @@ body{
   margin: auto;
   padding: 30px;
   color: var(--text-color);
-  background-color:#000022 ;
+  background-color:var(--bg-color) ;
 }
 
 ul{
@@ -23,8 +23,8 @@ ul{
 
 :root{
   --text-color: #fff;
-  --HL1: #8fd9e2;
-  --HL2: #f9f8bb;
-  --tertiary: #2a4b55;
-  --bg-color: #0e1e22;
+  --highlight: #8fd9e2;
+  --state-color: #063977;
+  --border-n-glow: blue;
+  --bg-color: #000022;
 }
