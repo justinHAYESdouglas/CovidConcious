@@ -1,0 +1,62 @@
+#stats-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+#risk-container{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border: 2px solid red;
+}
+
+#metrics-icu-wrapper{
+display: flex;
+flex-direction: column;
+width: 70%;
+border: 2px solid green;
+}
+
+#metrics-container{
+  width: 100%;
+  border: 5px solid pink;
+}
+
+#col-container{
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+#left-col{
+  width: 50%;
+}
+
+#col-divider{
+  width: 2px;
+  background-color: white;
+}
+
+#right-col{
+  width: 50%;
+}
+
+#icu-beds-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 5px solid blue;
+}
+
+#pie-chart-container{
+  width: 100%;
+}
+
+#place-holder-block{
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-color: crimson;
+}
+
+footer{display: none}
