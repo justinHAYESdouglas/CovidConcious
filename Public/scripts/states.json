@@ -12,7 +12,7 @@
   "abbr": "VT",
   "pos": 4
 },{
-  "name": "New Hampshire",
+  "name": "New-Hampshire",
   "abbr": "NH",
   "pos": 5
 },{
@@ -28,7 +28,7 @@
   "abbr": "MT",
   "pos": 8
  },{
-  "name": "North Dakota",
+  "name": "North-Dakota",
   "abbr": "ND",
   "pos": 9
  },{
@@ -44,7 +44,7 @@
   "abbr": "MI",
   "pos": 12
  },{
- "name": "New York",
+ "name": "New-York",
  "abbr": "NY",
  "pos": 13
 },{
@@ -64,7 +64,7 @@
  "abbr": "WY",
  "pos": 17
 },{
- "name": "South Dakota",
+ "name": "South-Dakota",
  "abbr": "SD",
  "pos": 18
 },{
@@ -88,7 +88,7 @@
  "abbr": "PA",
  "pos": 22
 },{
- "name": "New Jersey",
+ "name": "New-Jersey",
  "abbr": "NJ",
  "pos": 23
 },{
@@ -96,7 +96,7 @@
  "abbr": "CT",
  "pos": 24
 },{
- "name": "Rhode Island",
+ "name": "Rhode-Island",
  "abbr": "RI",
  "pos": 25
 },{
@@ -124,7 +124,7 @@
  "abbr": "KY",
  "pos": 31
 },{
- "name": "West Virginia",
+ "name": "West-Virginia",
  "abbr": "WV",
  "pos": 32
 },{
@@ -144,7 +144,7 @@
  "abbr": "AZ",
  "pos": 36
 },{
- "name": "New Mexico",
+ "name": "New-Mexico",
  "abbr": "NM",
  "pos": 37
 },{
@@ -160,15 +160,15 @@
  "abbr": "TN",
  "pos": 40
 },{
- "name": "North Carolina",
+ "name": "North-Carolina",
  "abbr": "NC",
  "pos": 41
 },{
- "name": "South Carolina",
+ "name": "South-Carolina",
  "abbr": "SC",
  "pos": 42
 },{
- "name": "Washington DC",
+ "name": "Washington-DC",
  "abbr": "DC",
  "pos": 43
 },{
@@ -196,7 +196,7 @@
  "abbr": "HI",
  "pos": 49
 },{
- "name": "Alaska",
+ "name": "Texas",
  "abbr": "TX",
  "pos": 50
 },{
