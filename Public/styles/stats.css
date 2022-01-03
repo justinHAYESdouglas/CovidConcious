@@ -1,3 +1,12 @@
+h4{
+  width: 25%;
+  margin: 100px auto auto auto;
+  font-size: 2.5em;
+  text-align: center;
+  border-bottom: 3px dotted blue;
+
+}
+
 #stats-wrapper{
   display: flex;
   flex-direction: row;
@@ -25,6 +34,7 @@ h2{
 h3{
   font-size: 5em;
   border-bottom: 3px dotted blue;
+  filter: drop-shadow(0 0 0.5rem blue);
 }
 
 #risk-container{
@@ -64,11 +74,6 @@ width: 70%;
   width: 50%;
 }
 
-#col-divider{
-  width: 2px;
-  background-color: white;
-}
-
 #right-col{
   width: 50%;
 }
@@ -91,3 +96,18 @@ width: 70%;
 }
 
 footer{display: none}
+
+@media screen and (max-width: 1081px){
+  #stats-wrapper{
+    flex-direction: column;
+  }
+
+  #risk-container, #metrics-icu-wrapper{
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  #stats-wrapper li{
+    font-size: .97em ;
+  }
+}
