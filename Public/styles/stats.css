@@ -1,31 +1,63 @@
 #stats-wrapper{
   display: flex;
   flex-direction: row;
+  padding: 25px;
+}
+
+#stats-wrapper li{
+  font-size: 1.2em ;
+}
+
+#risk-container, #metrics-container, #icu-beds-container{
+  backdrop-filter: blur(5px) saturate(176%);
+  -webkit-backdrop-filter: blur(5px) saturate(176%);
+  background-color: rgba(17, 25, 40, 0.41);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 5px;
+}
+
+h2{
+  font-size: 1.75em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+h3{
+  font-size: 5em;
+  border-bottom: 3px dotted blue;
 }
 
 #risk-container{
   display: flex;
   flex-direction: column;
   width: 30%;
-  border: 2px solid red;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 25px;
+}
+
+#risk-list li{
+  padding: 15px;
 }
 
 #metrics-icu-wrapper{
 display: flex;
 flex-direction: column;
 width: 70%;
-border: 2px solid green;
 }
 
 #metrics-container{
   width: 100%;
-  border: 5px solid pink;
+  margin-bottom: 25px;
 }
 
 #col-container{
   display: flex;
   flex-direction: row;
- 
+}
+
+#col-container li{
+  padding: 15px;
 }
 
 #left-col{
@@ -45,7 +77,6 @@ border: 2px solid green;
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 5px solid blue;
 }
 
 #pie-chart-container{
@@ -56,7 +87,7 @@ border: 2px solid green;
   width: 200px;
   height: 200px;
   margin: auto;
-  background-color: crimson;
+  background-color: wheat;
 }
 
 footer{display: none}
