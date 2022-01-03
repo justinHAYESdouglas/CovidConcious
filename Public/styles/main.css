@@ -9,9 +9,12 @@ body{
   flex-direction: column;
   margin: auto;
   padding: 30px;
-  width: 65%;
   color: var(--text-color);
   background-color:#000022 ;
+}
+
+ul{
+  list-style-type: none;
 }
 
 :root{
