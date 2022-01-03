@@ -1,7 +1,7 @@
 import {ApiKeys} from './keys.js';
 
 setInterval(function() {
-    console.log("WHY")
+    console.log("WHY DOESN'T FETCH LISTEN, FUCK!")
     let retrievedData = fetch('/', {
         method: 'GET',
         credentials: 'omit',
