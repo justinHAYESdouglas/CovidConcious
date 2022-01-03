@@ -10,11 +10,11 @@ let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.C
 
 let dayCheck = () => {
     let date = new Date();
-    console.log(ReferenceUtcDate);
+    // console.log(ReferenceUtcDate);
 
-    if (ReferenceUtcDate == null || undefined || ReferenceUtcDate != date.getUTCDate()){
+    if (ReferenceUtcDate == ReferenceUtcDate != date.getUTCDate() || null || undefined ){
         initRetrieveData();
-        console.log("if " + ReferenceUtcDate);
+        // console.log("if " + ReferenceUtcDate);
         return ReferenceUtcDate = date.getUTCDate();
     }  else {
         console.log("Same Day");
@@ -24,10 +24,10 @@ let dayCheck = () => {
 
 async function initRetrieveData() {
     const dataArray = await recall.retrieveData();
-    console.log(dataArray);
+    // console.log(dataArray);
 
     if(typeof dataArray == "object" && dataArray.length > 0){
-        console.log("object")
+        // console.log("object")
         arrayExists = true;
     }
 
@@ -36,11 +36,11 @@ async function initRetrieveData() {
 
 let CovidApiCall = (arrayExists) => {
 
-    console.log(arrayExists)
+    // console.log(arrayExists)
 
     fetch (CovidInfo)
     .then(response =>{
-        console.log(response);
+        // console.log(response);
         return response.json();
     })
     .then(data => {
@@ -88,7 +88,7 @@ let createStateCovidArray = (arrayExists, data) => {
         
     }
 
-    console.log(covidStates);
+    // console.log(covidStates);
 
     submitInit(arrayExists, covidStates);
 
@@ -110,7 +110,7 @@ let covidSubmit = (arrayExists, data) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
-            console.log(response);
+            // console.log(response);
             return response.json();
         })
     } 
@@ -123,11 +123,12 @@ let covidSubmit = (arrayExists, data) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
-            console.log(response);
+            // console.log(response);
             return response.json();
         })
     }
 };
 
 dayCheck();
+
 setInterval(dayCheck, 86400000);
