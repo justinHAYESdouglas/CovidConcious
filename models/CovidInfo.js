@@ -7,8 +7,8 @@ covidInfo.init(
     {
         StateAbbr: {
             type: DataTypes.STRING,
-            primaryKey: true,
-            allowNull: false
+            allowNull: false,
+            primaryKey: true
         },
         Pop: {
             type: DataTypes.INTEGER,

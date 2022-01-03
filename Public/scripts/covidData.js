@@ -1,16 +1,7 @@
 import {ApiKeys} from './keys.js';
+import {recall} from './dataRecall.js';
 
-setInterval(function() {
-    console.log("WHY DOESN'T FETCH LISTEN, FUCK!")
-    let retrievedData = fetch('/', {
-        method: 'GET',
-        credentials: 'omit',
-        headers: {'Content-Type' : 'application/json'},
-    }).then(function(data) {
-        console.log(data);
-    })
-}, 2000)
-
+let arrayExists = false;
 
 let covidStates = [];
 let ReferenceUtcDate;
@@ -22,7 +13,7 @@ let dayCheck = () => {
     console.log(ReferenceUtcDate);
 
     if (ReferenceUtcDate == null || undefined || ReferenceUtcDate != date.getUTCDate()){
-        CovidApiCall();
+        initRetrieveData();
         console.log("if " + ReferenceUtcDate);
         return ReferenceUtcDate = date.getUTCDate();
     }  else {
@@ -31,7 +22,21 @@ let dayCheck = () => {
     }
 }
 
-let CovidApiCall = () => {
+async function initRetrieveData() {
+    const dataArray = await recall.retrieveData();
+    console.log(dataArray);
+
+    if(typeof dataArray == "object"){
+        console.log("object")
+        arrayExists = true;
+    }
+
+    CovidApiCall(arrayExists);
+}
+
+let CovidApiCall = (arrayExists) => {
+
+    console.log(arrayExists)
 
     fetch (CovidInfo)
     .then(response =>{
@@ -39,12 +44,12 @@ let CovidApiCall = () => {
         return response.json();
     })
     .then(data => {
-        createStateCovidArray(data)
+        createStateCovidArray(arrayExists, data)
     });
 
 };
 
-let createStateCovidArray = (data) => {
+let createStateCovidArray = (arrayExists, data) => {
     for (let i=0; i<data.length; i++){
         let covidState = {};
 
@@ -85,28 +90,44 @@ let createStateCovidArray = (data) => {
 
     console.log(covidStates);
 
-    // submitInit(covidStates);
+    submitInit(arrayExists, covidStates);
 
 };
 
-let submitInit = (data) => {
+let submitInit = (arrayExists, data) => {
     for( let i=0; i<data.length; i++ ) {
-        covidSubmit(data[i]);
+        covidSubmit(arrayExists, data[i]);
     }
 };
 
-let covidSubmit = (data) => {  
-    const response = fetch('/', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        credentials: 'omit',
-        headers: {'Content-Type' : 'application/json'},
-    })
-    .then(response =>{
-        console.log(response);
-        return response.json();
-    })
+let covidSubmit = (arrayExists, data) => {
+    
+    if(arrayExists == false){
+        const response = fetch('/api', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            credentials: 'omit',
+            headers: {'Content-Type' : 'application/json'},
+        })
+        .then(response =>{
+            console.log(response);
+            return response.json();
+        })
+    } 
+    else if(arrayExists == true){
+        let id = data.StateAbbr;
+        const response = fetch('/api/' + id, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            credentials: 'omit',
+            headers: {'Content-Type' : 'application/json'},
+        })
+        .then(response =>{
+            console.log(response);
+            return response.json();
+        })
+    }
 };
 
-// dayCheck();
+dayCheck();
 setInterval(dayCheck, 86400000);
