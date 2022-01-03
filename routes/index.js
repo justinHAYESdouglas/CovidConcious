@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const homeRoutes = require('./covidRoutes');
+const postRoutes = require('./covidRoutes');
 
-router.use('/', homeRoutes);
+router.use('/api', postRoutes);
 
 module.exports = router;

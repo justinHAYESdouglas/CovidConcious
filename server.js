@@ -23,7 +23,7 @@ const sess = {
   }),
 };
 
-app.use('/*', routes);
+app.use('/', routes);
 
 app.use(session(sess));
 
