@@ -4,7 +4,7 @@ header{
   position: relative;
   margin: auto auto 50px auto;
   text-align: center;
-  border: 4px dotted blue;
+  border: 4px dotted var(--border-n-glow);
 }
 
 header:after{
@@ -14,7 +14,7 @@ header:after{
   width: 80%;
   top: -5px;
   right: 0px;
-  border: 5px solid #000022;
+  border: 5px solid var(--bg-color);
 }
 header:before{
   content:'';
@@ -23,7 +23,7 @@ header:before{
   width: 80%;
   bottom: -5px;
   left: 0px;
-  border: 5px solid #000022;
+  border: 5px solid var(--bg-color);
 }
 
 h1:before, h1:after{
@@ -48,20 +48,19 @@ h1{
   width: 65px;
   height: 65px;
   cursor: pointer;
-  border: 2px dotted blue;
-  background-color: var(--HL1);
+  border: 2px dotted var(--border-n-glow);
   border-radius: 12px;
-  background-color: #063977;
+  background-color: var(--state-color);
   color: var(--text-color);
   font-weight: bold;
   font-size: 1em;
 }
 
 #map-container button:hover, #map-container button:active{
-  background-color: var(--HL1);
+  background-color: var(--highlight);
   transition: ease .3s;
   color: #000;
-  filter: drop-shadow(0 0 0.5rem blue);
+  filter: drop-shadow(0 0 0.5rem var(--state-color));
 }
 
 .blank-space{
@@ -74,7 +73,6 @@ h1{
   
   header{
     width: 100%;
-    
   }
 
   #map-container{

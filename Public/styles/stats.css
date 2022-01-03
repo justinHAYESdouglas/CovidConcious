@@ -1,14 +1,15 @@
-h4{
+#state-name{
+  display: none;
   width: 25%;
   margin: 100px auto auto auto;
   font-size: 2.5em;
-  text-align: center;
-  border-bottom: 3px dotted blue;
+  justify-content: center;
+  border-bottom: 3px dotted var(--border-n-glow);
 
 }
 
 #stats-wrapper{
-  display: flex;
+  display: none;
   flex-direction: row;
   padding: 25px;
 }
@@ -33,8 +34,8 @@ h2{
 
 h3{
   font-size: 5em;
-  border-bottom: 3px dotted blue;
-  filter: drop-shadow(0 0 0.5rem blue);
+  border-bottom: 3px dotted var(--border-n-glow);
+  filter: drop-shadow(0 0 0.5rem var(--border-n-glow));
 }
 
 #risk-container{
