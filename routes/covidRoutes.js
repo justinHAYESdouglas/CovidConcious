@@ -4,17 +4,15 @@ const { covidInfo } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const covidData = await covidInfo.findAll({
-            order: [['StateAbbr', 'ASC']]
-        })
-        .then(function (covidData) {
-            console.log(covidData)
-        })
+            raw: true
+        });
+        console.log(covidData);
         res.status(200).json(covidData);
-    } catch (err) {
-        res.status(500).json(err)
+    } 
+    catch (err) {
+        res.status(400).json(err);
     }
-    console.log("GET FIRED")
-});
+})
 
 router.post('/', async (req, res) => {
     try {

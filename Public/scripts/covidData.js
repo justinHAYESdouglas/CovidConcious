@@ -1,15 +1,21 @@
 import {ApiKeys} from './keys.js';
-import covidRetrieve from './data.js'
+
+setInterval(function() {
+    console.log("WHY")
+    let retrievedData = fetch('/', {
+        method: 'GET',
+        credentials: 'omit',
+        headers: {'Content-Type' : 'application/json'},
+    }).then(function(data) {
+        console.log(data);
+    })
+}, 2000)
+
 
 let covidStates = [];
 let ReferenceUtcDate;
 
 let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.CovidApi;
-
-async function initDataRetrieve() {
-    const previousData = await covidRetrieve.pastCovidData();
-    
-};
 
 let dayCheck = () => {
     let date = new Date();
@@ -102,6 +108,5 @@ let covidSubmit = (data) => {
     })
 };
 
-initDataRetrieve();
-dayCheck();
+// dayCheck();
 setInterval(dayCheck, 86400000);
