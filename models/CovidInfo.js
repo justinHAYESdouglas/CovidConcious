@@ -19,7 +19,7 @@ covidInfo.init(
             allowNull: true
         },
         CompVacc: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(4, 3),
             allowNull: true
         },
         NewCases: {
@@ -31,11 +31,11 @@ covidInfo.init(
             allowNull: true
         },
         DensityPerHundredThousand: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(5, 1),
             allowNull: true
         },
         InfectionRatePerCase: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(4, 2),
             allowNull: true
         },
         NewDeaths: {
@@ -71,7 +71,7 @@ covidInfo.init(
             allowNull: true
         },
         ICUCapRatio: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(3, 2),
             allowNull: true
         },
         RiskLevel: {
