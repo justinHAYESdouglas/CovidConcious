@@ -36,12 +36,12 @@ $(document).ready(function(){
      });
 
      //Overall Risk Data
-     $("#risk-container h3").text(tarObj.RiskLevel);
-     $("#case-density").text(tarObj.DensityPerHundredThousand);
-     $("#test-positivity-ratio").text("oops");
-     $("#contact-tracers").text("oops");
-     $("#infection-rate").text("oops");
-     $("#icu-cap-ratio").text("oops");
+     $("#risk-container h3").text(tarObj.RiskLevelRl);
+     $("#case-density").text(tarObj.DensityRl);
+     $("#test-positivity-ratio").text(tarObj.PositiveRatioRl);
+     $("#contact-tracers").text(tarObj.ContactTracersRl);
+     $("#infection-rate").text(tarObj.InfectionRateRl);
+     $("#icu-cap-ratio").text(tarObj.ICUCapRatRl);
 
      //Metrics
      $("#population").text(tarObj.Pop);
