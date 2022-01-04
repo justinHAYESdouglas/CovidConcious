@@ -8,6 +8,7 @@ let ReferenceUtcDate;
 
 let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.CovidApi;
 
+// Init function, checks if 1 day has passed to refresh data on a daily basis.
 let dayCheck = () => {
     let date = new Date();
 
@@ -20,28 +21,42 @@ let dayCheck = () => {
     }
 }
 
+let dataArrayPh = {};
+dataArrayPh.exists = false;
+
+// Fetch call to DB to see if prior data already exists, also passes through placeholder values.
 async function initRetrieveData() {
     const dataArray = await recall.retrieveData();
+
+    for(let i = 0; i < dataArray.length; i++){
+        if(dataArray[i].StateAbbr == "PH"){
+            dataArrayPh.exists = true,
+            dataArrayPh.state = dataArray[i].StateAbbr
+        }
+    }
     if(typeof dataArray == "object" && dataArray.length > 0){
         arrayExists = true;
     }
 
-    CovidApiCall(arrayExists);
+    CovidApiCall(arrayExists, dataArrayPh);
 }
 
-let CovidApiCall = (arrayExists) => {
+// Fetch call to Covid API to return state data.
+let CovidApiCall = (arrayExists, phCheck) => {
 
     fetch (CovidInfo)
     .then(response =>{
         return response.json();
     })
     .then(data => {
-        createStateCovidArray(arrayExists, data)
+        createStateCovidArray(arrayExists, data, phCheck)
     });
 
 };
 
-let createStateCovidArray = (arrayExists, data) => {
+// Returns API request data as an array of objects usable by the site. -- Can be refactored for
+// clearer pathing.
+let createStateCovidArray = (arrayExists, data, phCheck) => {
     for (let i=0; i<data.length; i++){
         let covidState = {};
 
@@ -82,18 +97,20 @@ let createStateCovidArray = (arrayExists, data) => {
         covidStates.push(covidState);
         
     }
-    submitInit(arrayExists, covidStates);
+    submitInit(arrayExists, covidStates, phCheck);
 };
 
-let submitInit = (arrayExists, data) => {
+// Iterates over API request data to submit to DB.
+let submitInit = (arrayExists, data, phCheck) => {
     for( let i=0; i<data.length; i++ ) {
-        covidSubmit(arrayExists, data[i]);
+        covidSubmit(arrayExists, data[i], phCheck);
     }
 };
 
-let covidSubmit = (arrayExists, data) => {
-    
-    if(arrayExists == false){
+// Either posts data from api query to DB, or updates existing data.
+let covidSubmit = (arrayExists, data, phCheck) => {
+
+    if(arrayExists == false || phCheck.exists == true){
         const response = fetch('/api', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -101,9 +118,15 @@ let covidSubmit = (arrayExists, data) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
+
+            if(phCheck.exists == true && response.ok){
+                cleanUpPlaceHolder(phCheck);
+            };
+
             return response.json();
         })
     } 
+    
     else if(arrayExists == true){
         let id = data.StateAbbr;
         const response = fetch('/api/' + id, {
@@ -118,6 +141,20 @@ let covidSubmit = (arrayExists, data) => {
     }
 };
 
+// Cleans up placeholder data left behind by DB seed.
+let cleanUpPlaceHolder = (phCheck) => {
+    const deletePH = fetch('/api/delete/' + phCheck.state, {
+        method: 'DELETE',
+        credentials: 'omit',
+        headers: {'Content-Type' : 'application/json'},
+    }).then(res => {
+        console.log(res.json());
+        console.log(deletePH);
+    })
+    return phCheck.exists = false;
+}
+
+// Init function.
 dayCheck();
 
 setInterval(dayCheck, 86400000);
