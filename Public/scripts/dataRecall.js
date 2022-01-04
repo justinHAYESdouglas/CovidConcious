@@ -7,13 +7,11 @@ const recall = {
                 credentials: 'omit',
                 headers: {'Content-Type' : 'application/json'},
             })
-            console.log(response)
         } catch (err) {
             console.log(err)
         }
 
         const json = await response.json();
-        console.log(JSON)
         return json;
     }
 }
