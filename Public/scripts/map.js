@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     async function initRetrieveData() {
       const dataArray = await recall.retrieveData();
-
+      console.log(dataArray);
       if(dataArray.length > 0){
         return mapData = dataArray;
       } else {
@@ -51,7 +51,8 @@ $(document).ready(function(){
      $("#new-cases").text(tarObj.NewCases);
      $("#new-deaths").text(tarObj.NewDeaths);
 
-      console.log(tarObj);
+    //  //Pie Chart
+    
     });
 
     //position buttons in the shape of the US
