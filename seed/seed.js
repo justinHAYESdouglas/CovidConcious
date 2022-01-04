@@ -7,10 +7,7 @@ const covidTemplate = require('./covidTemplate.json');
 const seedDatabase = async() => {
     await sequelize.sync({force: true});
 
-    const covidInsert = await covidInfo.create(covidTemplate[0], {
-        individualHooks: true,
-        returning: true,
-    })
+    const covidInsert = await covidInfo.create(covidTemplate[0])
 
     process.exit(0);
 }

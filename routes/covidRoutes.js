@@ -2,6 +2,7 @@ const router = require("express").Router();
 const req = require("express/lib/request");
 const { covidInfo } = require('../models');
 
+// Get call to return data from SQL database.
 router.get('/', async (req, res) => {
     console.log("Get Fired")
     try {
@@ -16,6 +17,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Post call to populate database with data from Covid api return.
 router.post('/', async (req, res) => {
     try {
         const covidData = await covidInfo.create(req.body);
@@ -25,6 +27,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+//Update call to replace any database data with fresh data from daily queries.
 router.put('/*', async (req, res) => {
     console.log(req.params[0])
     console.log("REQ BODY",req.body)
@@ -61,6 +64,15 @@ router.put('/*', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     } 
+})
+
+// Delete call to destroy any placeholder values left behind by seeding the DB.
+router.delete('/delete/*', (req, res) => {
+    let phDelete = covidInfo.findOne({
+        where: {
+            StateAbbr : req.params[0]
+        }
+    }).then(response => {response.destroy()});
 })
 
 module.exports = router;

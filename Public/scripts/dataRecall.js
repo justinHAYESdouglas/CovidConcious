@@ -1,3 +1,4 @@
+// Fetch function that returns data from the DB.
 const recall = {
     async retrieveData() {
         let response;
