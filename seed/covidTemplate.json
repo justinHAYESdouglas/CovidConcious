@@ -7,7 +7,11 @@
         "NewCases": 0,
         "Cases": 0,
         "DensityPerHundredThousand": 0,
-        "InfectionRatePerCase": 0,
+        "InfectionRateRl": 0,
+        "DensityRl": 0,
+        "ContactTracersRl": 0,
+        "PositiveRatioRl": 0,
+        "ICUCapRatRl": 0,
         "NewDeaths": 0,
         "Deaths": 0,
         "BedCap": 0,
@@ -17,6 +21,6 @@
         "ICUUsageTotal": 0,
         "ICUUsageCovid": 0,
         "ICUCapRatio": 0,
-        "RiskLevel": 0
+        "RiskLevelRl": 0
     }
 ]
