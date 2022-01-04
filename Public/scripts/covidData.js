@@ -10,8 +10,11 @@ let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.C
 
 let dayCheck = () => {
     let date = new Date();
+    // console.log(ReferenceUtcDate);
+
     if (ReferenceUtcDate == ReferenceUtcDate != date.getUTCDate() || null || undefined ){
         initRetrieveData();
+        // console.log("if " + ReferenceUtcDate);
         return ReferenceUtcDate = date.getUTCDate();
     }  else {
         console.log("Same Day");
@@ -21,34 +24,34 @@ let dayCheck = () => {
 
 async function initRetrieveData() {
     const dataArray = await recall.retrieveData();
+    // console.log(dataArray);
+
     if(typeof dataArray == "object" && dataArray.length > 0){
+        // console.log("object")
         arrayExists = true;
     }
+
     CovidApiCall(arrayExists);
 }
 
 let CovidApiCall = (arrayExists) => {
+
+    // console.log(arrayExists)
+
     fetch (CovidInfo)
     .then(response =>{
+        // console.log(response);
         return response.json();
     })
     .then(data => {
-        console.log(data);
         createStateCovidArray(arrayExists, data)
     });
+
 };
 
 let createStateCovidArray = (arrayExists, data) => {
     for (let i=0; i<data.length; i++){
         let covidState = {};
-
-        covidState.PositiveRatioRl = data[i].riskLevels.testPositivityRatio,
-        covidState.ContactTracersRl = data[i].riskLevels.contactTracerCapacityRatio,
-        covidState.InfectionRateRl = data[i].riskLevels.infectionRate,
-        covidState.DensityRl = data[i].riskLevels.caseDensity,
-        covidState.RiskLevelRl = data[i].riskLevels.overall,
-        covidState.ICUCapRatRl = data[i].riskLevels.icuCapacityRatio,
-
 
         covidState.StateAbbr = data[i].state,
         covidState.Pop = data[i].population,
@@ -63,6 +66,8 @@ let createStateCovidArray = (arrayExists, data) => {
 
         // Case # per hundred thousand.
         covidState.DensityPerHundredThousand = data[i].metrics.caseDensity,
+        // Infectivity average of each case.
+        covidState.InfectionRatePerCase = data[i].metrics.infectionRate
 
         covidState.NewDeaths = data[i].actuals.newDeaths,
         covidState.Deaths = data[i].actuals.deaths,
@@ -75,11 +80,18 @@ let createStateCovidArray = (arrayExists, data) => {
         covidState.ICUUsageTotal = data[i].actuals.icuBeds.currentUsageTotal,
         covidState.ICUUsageCovid = data[i].actuals.icuBeds.currentUsageCovid,
         // Ratio of staffed ICU beds currently in use.
-        covidState.ICUCapRatio = data[i].metrics.icuCapacityRatio
+        covidState.ICUCapRatio = data[i].metrics.icuCapacityRatio,
+
+        covidState.RiskLevel = data[i].riskLevels.overall
 
         covidStates.push(covidState);
+        
     }
+
+    // console.log(covidStates);
+
     submitInit(arrayExists, covidStates);
+
 };
 
 let submitInit = (arrayExists, data) => {
@@ -98,6 +110,7 @@ let covidSubmit = (arrayExists, data) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
+            // console.log(response);
             return response.json();
         })
     } 
@@ -110,9 +123,12 @@ let covidSubmit = (arrayExists, data) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
+            // console.log(response);
             return response.json();
         })
     }
 };
+
 dayCheck();
+
 setInterval(dayCheck, 86400000);
