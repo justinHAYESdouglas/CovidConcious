@@ -12,7 +12,7 @@ let dayCheck = () => {
     let date = new Date();
     // console.log(ReferenceUtcDate);
 
-    if (ReferenceUtcDate == null || undefined || ReferenceUtcDate != date.getUTCDate()){
+    if (ReferenceUtcDate == ReferenceUtcDate != date.getUTCDate() || null || undefined ){
         initRetrieveData();
         // console.log("if " + ReferenceUtcDate);
         return ReferenceUtcDate = date.getUTCDate();
@@ -130,4 +130,5 @@ let covidSubmit = (arrayExists, data) => {
 };
 
 dayCheck();
+
 setInterval(dayCheck, 86400000);

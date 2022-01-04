@@ -1,0 +1,22 @@
+[
+    {
+        "StateAbbr": "PH",
+        "Pop": 0,
+        "TotalVacc": 0,
+        "CompVacc": 0,
+        "NewCases": 0,
+        "Cases": 0,
+        "DensityPerHundredThousand": 0,
+        "InfectionRatePerCase": 0,
+        "NewDeaths": 0,
+        "Deaths": 0,
+        "BedCap": 0,
+        "BedUsageTotal": 0,
+        "BedUsageCovid": 0,
+        "ICUCap": 0,
+        "ICUUsageTotal": 0,
+        "ICUUsageCovid": 0,
+        "ICUCapRatio": 0,
+        "RiskLevel": 0
+    }
+]
