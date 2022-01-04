@@ -1,17 +1,15 @@
 import {recall} from './dataRecall.js';
 $(document).ready(function(){
-
   let mapData;
   //loop through json file and assing each state a button with an id
   $.getJSON("/scripts/states.json", function(states){
-   
+
     $.each(states,function (i, state){      
       $("#map-container").append("<button title ="+state.name+" id ="+state.abbr+">"+state.abbr+"</button>");
     });
 
     async function initRetrieveData() {
       const dataArray = await recall.retrieveData();
-      let buttonParent = $("#map-container button");
 
       if(dataArray.length > 0){
         return mapData = dataArray;
@@ -22,6 +20,7 @@ $(document).ready(function(){
 
     initRetrieveData();
 
+    //Link covid data to map buttons
     $("#map-container button").click(function( event ) {
       let tarObj = {}
       for(let i = 0; i < mapData.length; i++){
@@ -29,7 +28,29 @@ $(document).ready(function(){
           tarObj = mapData[i];
         }
       }
-      
+      $("#state-name, #stats-wrapper").css("display", "flex");
+      $("#state-name").text($(this).attr("title"));
+     
+      $("html,body").animate({
+        scrollTop: $("#state-name").offset().top
+     });
+
+     //Overall Risk Data
+     $("#risk-container h3").text(tarObj.RiskLevel);
+     $("#case-density").text(tarObj.DensityPerHundredThousand);
+     $("#test-positivity-ratio").text("oops");
+     $("#contact-tracers").text("oops");
+     $("#infection-rate").text("oops");
+     $("#icu-cap-ratio").text("oops");
+
+     //Metrics
+     $("#population").text(tarObj.Pop);
+     $("#cases").text(tarObj.Cases);
+     $("#deaths").text(tarObj.Deaths);
+     $("#vaccines-completed").text(tarObj.TotalVacc);
+     $("#new-cases").text(tarObj.NewCases);
+     $("#new-deaths").text(tarObj.NewDeaths);
+
       console.log(tarObj);
     });
 
@@ -42,16 +63,5 @@ $(document).ready(function(){
     $("#DE, #GA, #HI").after(blank.repeat(3));
     $("#DC").after(blank.repeat(6));
     $("#TX").after(blank.repeat(4));
-
-    //display state's stats when a state is clicked
-   $("#map-container button").click(function(){
-      $("#state-name, #stats-wrapper").css("display", "flex");
-      $("#state-name").text($(this).attr("title"));
-      $("html,body").animate({
-        scrollTop: $("#state-name").offset().top
-     });
-   });
-
   });
-
 });
