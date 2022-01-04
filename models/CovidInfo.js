@@ -34,8 +34,24 @@ covidInfo.init(
             type: DataTypes.DECIMAL(5, 1),
             allowNull: true
         },
-        InfectionRatePerCase: {
-            type: DataTypes.DECIMAL(4, 2),
+        InfectionRateRl: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        DensityRl: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        ContactTracersRl: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        PositiveRatioRl: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        ICUCapRatRl: {
+            type: DataTypes.INTEGER,
             allowNull: true
         },
         NewDeaths: {
@@ -74,7 +90,7 @@ covidInfo.init(
             type: DataTypes.DECIMAL(3, 2),
             allowNull: true
         },
-        RiskLevel: {
+        RiskLevelRl: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
