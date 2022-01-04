@@ -1,10 +1,36 @@
+import {recall} from './dataRecall.js';
 $(document).ready(function(){
 
+  let mapData;
   //loop through json file and assing each state a button with an id
   $.getJSON("/scripts/states.json", function(states){
    
     $.each(states,function (i, state){      
       $("#map-container").append("<button title ="+state.name+" id ="+state.abbr+">"+state.abbr+"</button>");
+    });
+
+    async function initRetrieveData() {
+      const dataArray = await recall.retrieveData();
+      let buttonParent = $("#map-container button");
+
+      if(dataArray.length > 0){
+        return mapData = dataArray;
+      } else {
+        initRetrieveData();
+      }
+    }
+
+    initRetrieveData();
+
+    $("#map-container button").click(function( event ) {
+      let tarObj = {}
+      for(let i = 0; i < mapData.length; i++){
+        if (mapData[i].StateAbbr == event.target.id){
+          tarObj = mapData[i];
+        }
+      }
+      
+      console.log(tarObj);
     });
 
     //position buttons in the shape of the US

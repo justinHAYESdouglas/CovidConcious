@@ -12,7 +12,11 @@ CREATE TABLE CovidInfo(
     NewCases INT,
     Cases INT,
     DensityPerHundredThousand DECIMAL(5, 1),
-    InfectionRatePerCase DECIMAL(4, 2),
+    InfectionRateRl INT,
+    DensityRl INT,
+    ContactTracersRl INT,
+    PositiveRatioRl INT,
+    ICUCapRatRl INT,
     NewDeaths INT,
     Deaths INT,
     BedCap INT,
@@ -22,5 +26,5 @@ CREATE TABLE CovidInfo(
     ICUUsageTotal INT,
     ICUUsageCovid INT,
     ICUCapRatio DECIMAL(3, 2),
-    RiskLevel INT
+    RiskLevelRl INT
 );
