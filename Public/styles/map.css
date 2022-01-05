@@ -56,7 +56,7 @@ h1{
   font-size: 1em;
 }
 
-#map-container button:hover, #map-container button:active{
+#map-container button:hover, #map-container button:focus{
   background-color: var(--highlight);
   transition: ease .3s;
   color: #000;

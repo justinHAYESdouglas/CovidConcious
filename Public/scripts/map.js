@@ -49,6 +49,12 @@ $(document).ready(function(){
      $("#infection-rate").text(tarObj.InfectionRateRl);
      $("#icu-cap-ratio").text(tarObj.ICUCapRatRl);
 
+     if ($("h3").text()  >= 2){
+      $("h3").css("filter", "drop-shadow(0 0 0.5rem orange)")
+     } if($("h3").text() >= 5){
+      $("h3").css("filter", "drop-shadow(0 0 0.5rem crimson)")
+     }
+
      //Metrics
      $("#population").text(tarObj.Pop).digits();
      $("#cases").text(tarObj.Cases).digits();
