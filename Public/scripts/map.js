@@ -52,7 +52,7 @@ $(document).ready(function(){
      $("#new-deaths").text(tarObj.NewDeaths);
 
     //  //Pie Chart
-    
+
     });
 
     //position buttons in the shape of the US
