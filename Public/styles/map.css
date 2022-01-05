@@ -56,13 +56,12 @@ h1{
   font-size: 1em;
 }
 
-#map-container button:hover, #map-container button:focus{
+#map-container button:hover, #map-container button:active{
   background-color: var(--highlight);
   transition: ease .3s;
-  color: var(--text-color);
+  color: #000;
   filter: drop-shadow(0 0 0.5rem var(--state-color));
 }
-
 
 .blank-space{
   width: 65px;
