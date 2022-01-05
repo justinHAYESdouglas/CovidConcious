@@ -8,6 +8,7 @@ $(document).ready(function(){
       $("#map-container").append("<button title ="+state.name+" id ="+state.abbr+">"+state.abbr+"</button>");
     });
 
+    //Link covid data to map buttons    
     async function initRetrieveData() {
       const dataArray = await recall.retrieveData();
       console.log(dataArray);
@@ -17,10 +18,8 @@ $(document).ready(function(){
         initRetrieveData();
       }
     }
-
     initRetrieveData();
-
-    //Link covid data to map buttons
+    
     $("#map-container button").click(function( event ) {
       let tarObj = {}
       for(let i = 0; i < mapData.length; i++){
