@@ -47,7 +47,6 @@ let CovidApiCall = (arrayExists, phCheck) => {
         return response.json();
     })
     .then(data => {
-        console.log(data);
         createStateCovidArray(arrayExists, data, phCheck)
     });
 

@@ -34,7 +34,6 @@ $(document).ready(function(){
           tarObj = mapData[i];
         }
       }
-      console.log(tarObj);
       $("#state-name, #stats-wrapper").css("display", "flex");
       $("#state-name").text($(this).attr("title"));
      
@@ -90,36 +89,85 @@ $(document).ready(function(){
      }
     // Pie Chart
 
+    // Clear existing pie charts.
+     let createPieEl = () => {
+      let compRatEl = $('<div></div>')
+      .addClass('chart')
+      .attr('id', 'vaccine-completed-ratio');
+      let compRatElTitle = $('<h4></h4>')
+      .addClass('graph-title')
+      .text('Completed Vaccine %');
+      let initRatEl = $('<div></div>')
+      .addClass('chart')
+      .attr('id', 'vaccine-initiated-to-complete');
+      let initRatElTitle = $('<h4></h4>')
+      .addClass('graph-title')
+      .text('Initiated Vaccine %');
+      let icuRatEl = $('<div></div>')
+      .addClass('chart')
+      .attr('id', 'icu-cap-rat');
+      let icuRatElTitle = $('<h4></h4>')
+      .addClass('graph-title')
+      .text('ICU Beds Occupied %');
+      let bedRatEl = $('<div></div>')
+      .addClass('chart')
+      .attr('id', 'beds-used-rat');
+      let bedRatElTitle = $('<h4></h4>')
+      .addClass('graph-title')
+      .text('Hospital Beds Occupied %');
+      $("#pie-chart-container-comp-vacc").append(compRatElTitle, compRatEl);
+      $("#pie-chart-container-init-vacc").append(initRatElTitle, initRatEl);
+      $("#pie-chart-container-icu-rat").append(icuRatElTitle, icuRatEl);
+      $("#pie-chart-container-bed-rat").append(bedRatElTitle, bedRatEl);
+     }
+
+     if($(".pie-chart-parent div")){
+      $(".pie-chart-parent").empty();
+      createPieEl();
+     } else {
+      createPieEl();
+     }
+
     // Refactor and cleanse data from tarObj into usable percentages.
      let returnedData = pieCleanse.refineString(tarObj);
-     console.log(returnedData);
     // Change data-percent to new percentage values
      if(returnedData[0].compRatio != undefined){
-      $("#vaccine-completed-ratio").show();
+      $("#pie-chart-container-comp-vacc").show();
       $("#vaccine-completed-ratio").attr("data-percent", returnedData[0].compRatio);
+      $("#vaccine-completed-ratio").text(returnedData[0].compRatio + "%");
      } else{
-      $("#vaccine-completed-ratio").hide();
+      $("#pie-chart-container-comp-vacc").hide();
      }
      if(returnedData[0].initRatio != undefined){
-      $("#vaccine-initiated-to-complete").show();
+      $("#pie-chart-container-init-vacc").show();
       $("#vaccine-initiated-to-complete").attr("data-percent", returnedData[0].initRatio);
+      $("#vaccine-initiated-to-complete").text(returnedData[0].initRatio + "%");
      } else{
-      $("#vaccine-initiated-to-complete").hide();
+      $("#pie-chart-container-init-vacc").hide();
      }
      if(returnedData[0].icuRatio != undefined){
-      $("#icu-cap-rat").show();
+      $("#pie-chart-container-icu-rat").show();
       $("#icu-cap-rat").attr("data-percent", returnedData[0].icuRatio);
+      $("#icu-cap-rat").text(returnedData[0].icuRatio + "%");
      } else{
-      $("#icu-cap-rat").hide();
+      $("#pie-chart-container-icu-rat").hide();
      }
      if(returnedData[0].bedRatio != undefined){
-      $("#beds-used-rat").show();
+      $("#pie-chart-container-bed-rat").show();
       $("#beds-used-rat").attr("data-percent", returnedData[0].bedRatio);
+      $("#beds-used-rat").text(returnedData[0].bedRatio + "%");
      } else{
-      $("#beds-used-rat").hide();
+      $("#pie-chart-container-bed-rat").hide();
      }
     // Call easy-pie-chart.
-     $('.chart').easyPieChart({});
+     $('.chart').easyPieChart({
+      trackColor: "#063977",
+      barColor: "#8fd9e2",
+      scaleColor: false,
+      lineWidth: 10,
+      lineCap: "butt",
+      animate: 1500
+     });
     });
 
     //position buttons in the shape of the US
