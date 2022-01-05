@@ -1,4 +1,5 @@
 import {recall} from './dataRecall.js';
+import {pieCleanse} from './pieCleanse.js';
 $(document).ready(function(){
   
   $.fn.digits = function(){ 
@@ -33,6 +34,7 @@ $(document).ready(function(){
           tarObj = mapData[i];
         }
       }
+      console.log(tarObj);
       $("#state-name, #stats-wrapper").css("display", "flex");
       $("#state-name").text($(this).attr("title"));
      
@@ -56,15 +58,68 @@ $(document).ready(function(){
      }
 
      //Metrics
-     $("#population").text(tarObj.Pop).digits();
-     $("#cases").text(tarObj.Cases).digits();
-     $("#deaths").text(tarObj.Deaths).digits();
-     $("#vaccines-completed").text(tarObj.TotalVacc).digits();
-     $("#new-cases").text(tarObj.NewCases).digits();
-     $("#new-deaths").text(tarObj.NewDeaths).digits();
+     if (tarObj.Pop != null){
+      $("#population").text(tarObj.Pop).digits();
+     } else if (tarObj.Pop == null){
+      $("#population").text("N/A");
+     }
+     if (tarObj.Cases != null){
+      $("#cases").text(tarObj.Cases).digits();
+     } else if (tarObj.Cases == null){
+      $("#cases").text("N/A");
+     }
+     if (tarObj.Deaths != null){
+      $("#deaths").text(tarObj.Deaths).digits();
+     } else if (tarObj.Deaths == null){
+      $("#deaths").text("N/A");
+     }
+     if (tarObj.TotalVacc != null){
+      $("#vaccines-completed").text(tarObj.TotalVacc).digits();
+     } else if (tarObj.TotalVacc == null){
+      $("#vaccines-completed").text("N/A");
+     }
+     if (tarObj.NewCases != null){
+      $("#new-cases").text(tarObj.NewCases).digits();
+     } else if (tarObj.NewCases == null){
+      $("#new-cases").text("N/A");
+     }
+     if (tarObj.NewDeaths != null){
+      $("#new-deaths").text(tarObj.NewDeaths).digits();
+     } else if (tarObj.NewDeaths == null){
+      $("#new-deaths").text("N/A");
+     }
+    // Pie Chart
 
-    //  //Pie Chart
-
+    // Refactor and cleanse data from tarObj into usable percentages.
+     let returnedData = pieCleanse.refineString(tarObj);
+     console.log(returnedData);
+    // Change data-percent to new percentage values
+     if(returnedData[0].compRatio != undefined){
+      $("#vaccine-completed-ratio").show();
+      $("#vaccine-completed-ratio").attr("data-percent", returnedData[0].compRatio);
+     } else{
+      $("#vaccine-completed-ratio").hide();
+     }
+     if(returnedData[0].initRatio != undefined){
+      $("#vaccine-initiated-to-complete").show();
+      $("#vaccine-initiated-to-complete").attr("data-percent", returnedData[0].initRatio);
+     } else{
+      $("#vaccine-initiated-to-complete").hide();
+     }
+     if(returnedData[0].icuRatio != undefined){
+      $("#icu-cap-rat").show();
+      $("#icu-cap-rat").attr("data-percent", returnedData[0].icuRatio);
+     } else{
+      $("#icu-cap-rat").hide();
+     }
+     if(returnedData[0].bedRatio != undefined){
+      $("#beds-used-rat").show();
+      $("#beds-used-rat").attr("data-percent", returnedData[0].bedRatio);
+     } else{
+      $("#beds-used-rat").hide();
+     }
+    // Call easy-pie-chart.
+     $('.chart').easyPieChart({});
     });
 
     //position buttons in the shape of the US

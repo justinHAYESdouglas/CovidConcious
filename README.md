@@ -23,4 +23,4 @@ N/A
 Front end design and construction by Justin, back end framework and construction by Jeremy.
 
 ## Screenshot
-![Screenshot](./Public/assets/screenshot.png)
+![Screenshot](./public/assets/screenshot.png)

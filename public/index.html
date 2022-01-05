@@ -59,12 +59,15 @@
 
         <div id="icu-beds-container">
 
-          <h2>ICU Beds</h2>
-          <!-- <div id="pie-chart-container">
-            <div id = "place-holder-block">
+          <h2>Percentages</h2>
+          <div id="pie-chart-container">
+            <!-- <div id = "place-holder-block">
               <img src = "assets/pie-chart-placeholder.png">
             </div> -->
-            <div class="chart" data-percent="75">50%</div>
+            <div id="vaccine-completed-ratio" class="chart" data-percent="75">Vaccine Completion %</div>
+            <div id="vaccine-initiated-to-complete" class="chart" data-percent="75">Vaccine Initiated %</div>
+            <div id="icu-cap-rat" class="chart" data-percent="75">ICU Usage</div>
+            <div id="beds-used-rat" class="chart" data-percent="75">Hospital Bed Usage</div>
           </div>
 
         </div>
@@ -77,18 +80,12 @@
       constitute financial advice or a pricing guarantee for any apartment.</p>
   </footer>
 <script src="./scripts/map.js" type="module"></script>
+<script src="./scripts/pieCleanse.js" type="module"></script>
 <script src="./scripts/covidData.js" type="module"></script>
 <script src="./scripts/keys.js" type="module"></script>
 <script src="./scripts/dataRecall.js" type="module"></script>
 <script src="./scripts/pieChart.js"></script>
 
-<script>
-  $(function() {
-        $('.chart').easyPieChart({
-            //your options goes here
-        });
-    });
-</script>
 </body>
 
 
