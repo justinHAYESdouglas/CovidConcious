@@ -2,12 +2,8 @@ import {ApiKeys} from './keys.js';
 import {recall} from './dataRecall.js';
 
 let arrayExists = false;
-
-let countI = 0;
-
 let covidStates = [];
 let ReferenceUtcDate;
-
 let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.CovidApi;
 
 // Init function, checks if 1 day has passed to refresh data on a daily basis.
@@ -107,11 +103,8 @@ let submitInit = (arrayExists, data, phCheck) => {
     for( let i=0; i<data.length; i++ ) {
         covidSubmit(arrayExists, data[i], phCheck);
     }
-    console.log(countI);
-    console.log(phCheck.exists);
     if(phCheck.exists == true){
         cleanUpPlaceHolder(phCheck);
-        dayCheck();
     };
 };
 
@@ -128,7 +121,6 @@ let covidSubmit = (arrayExists, data, phCheck) => {
         .then(response =>{
             return response.json();
         })
-        countI++;
     } 
     
     else if(arrayExists == true){
@@ -161,4 +153,4 @@ let cleanUpPlaceHolder = (phCheck) => {
 // Init function.
 dayCheck();
 
-setInterval(dayCheck, 86400000);
+setInterval(dayCheck, 43200000);
