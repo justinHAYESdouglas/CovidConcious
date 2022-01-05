@@ -72,7 +72,7 @@ router.delete('/delete/*', (req, res) => {
         where: {
             StateAbbr : req.params[0]
         }
-    }).then(response => {response.destroy()});
+    }).then(response => {if(response != null || undefined){response.destroy()}});
 })
 
 module.exports = router;
