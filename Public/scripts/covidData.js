@@ -47,6 +47,7 @@ let CovidApiCall = (arrayExists, phCheck) => {
         return response.json();
     })
     .then(data => {
+        console.log(data);
         createStateCovidArray(arrayExists, data, phCheck)
     });
 
@@ -72,6 +73,7 @@ let createStateCovidArray = (arrayExists, data, phCheck) => {
         covidState.TotalVacc = data[i].actuals.vaccinationsCompleted,
         // Ratio of vaccinations completed.
         covidState.CompVacc = data[i].metrics.vaccinationsCompletedRatio,
+        covidState.InitVacc = data[i].metrics.vaccinationsInitiatedRatio,
 
         covidState.NewCases = data[i].actuals.newCases,
         covidState.Cases = data[i].actuals.cases,

@@ -9,6 +9,7 @@ CREATE TABLE CovidInfo(
     Pop INT,
     TotalVacc INT,
     CompVacc DECIMAL(4, 3),
+    InitVacc DECIMAL(4, 3),
     NewCases INT,
     Cases INT,
     DensityPerHundredThousand DECIMAL(5, 1),

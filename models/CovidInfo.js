@@ -22,6 +22,10 @@ covidInfo.init(
             type: DataTypes.DECIMAL(4, 3),
             allowNull: true
         },
+        InitVacc: {
+            type: DataTypes.DECIMAL(4, 3),
+            allowNull: true
+        },
         NewCases: {
             type: DataTypes.INTEGER,
             allowNull: true
