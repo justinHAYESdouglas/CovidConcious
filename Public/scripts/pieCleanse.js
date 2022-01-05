@@ -5,79 +5,32 @@ const pieCleanse = {
         let multiplier = Math.pow(10, 2);
         bedRatInit = Math.round(bedRatInit * multiplier) / multiplier;
         string.bedRat = bedRatInit;
-
-        let compRatio;
-        let initRatio;
-        let icuRatio;
-        let bedRatio;
-
         // Create object of required values, converted to string(in case of int), split into array.
         let refineObj = {}
         if(string.CompVacc != null){
-          refineObj.compRat = string.CompVacc.toString().split('');
+          refineObj.compRat = parseFloat(string.CompVacc);
         }
         if(string.ICUCapRatio != null){
-          refineObj.icuRat = string.ICUCapRatio.toString().split('');
+          refineObj.icuRat = parseFloat(string.ICUCapRatio);
         }
         if(string.InitVacc != null){
-          refineObj.initRat = string.InitVacc.toString().split('');
+          refineObj.initRat = parseFloat(string.InitVacc);
         }
         if(string.bedRat != null){
-          refineObj.bedRat = string.bedRat.toString().split('');
+          refineObj.bedRat = parseFloat(string.bedRat);
         }
-        // Remove 0. from beginning of each entry.
-        if(refineObj.compRat){
-          refineObj.compRat.splice(0, 2);
-        }
-        if(refineObj.icuRat){
-          refineObj.icuRat.splice(0, 2);
-        };
-        if(refineObj.initRat){
-          refineObj.initRat.splice(0, 2);
-        };
-        if(refineObj.bedRat){
-          refineObj.bedRat.splice(0, 2);
-        };
-        console.log(refineObj);
-        // Add . between index 1 and 2 of 3 digit returns.
-        if(refineObj.compRat){
-          refineObj.compRat.splice(2, 0, ".");
-        };
-        if(refineObj.initRat){
-          refineObj.initRat.splice(2, 0, ".");
-        };
-        // Rejoin strings.
-        if(refineObj.compRat){
-          refineObj.compRat = refineObj.compRat.join();
-        };
-        if(refineObj.icuRat){
-          refineObj.icuRat = refineObj.icuRat.join();
-        };
-        if(refineObj.initRat){
-          refineObj.initRat = refineObj.initRat.join();
-        };
-        if(refineObj.bedRat){
-          refineObj.bedRat = refineObj.bedRat.join();
-        };
         // Remove all added commas from join.
         if(refineObj.compRat){
-          refineObj.compRat = refineObj.compRat.replaceAll(",", "");
+          refineObj.compRat = refineObj.compRat * 100;
         };
         if(refineObj.icuRat){
-          refineObj.icuRat = refineObj.icuRat.replaceAll(",", "");
+          refineObj.icuRat = refineObj.icuRat * 100;
         };
         if(refineObj.initRat){
-          refineObj.initRat = refineObj.initRat.replaceAll(",", "");
+          refineObj.initRat = refineObj.initRat * 100;
         };
         if(refineObj.bedRat){
-          refineObj.bedRat = refineObj.bedRat.replaceAll(",", "");
-        };
-        // Convert 3 digit returns to integers for Math.round;
-        if(refineObj.compRat){
-          refineObj.compRat = parseFloat(refineObj.compRat);
-        };
-        if(refineObj.initRat){
-          refineObj.initRat = parseFloat(refineObj.initRat);
+          refineObj.bedRat = refineObj.bedRat * 100;
         };
         // Round 3 digit returns to nearest whole number.
         if(refineObj.compRat){
@@ -93,24 +46,13 @@ const pieCleanse = {
         if(refineObj.initRat){
           refineObj.initRat = refineObj.initRat.toString();
         };
-        
-        console.log(refineObj);
-  
-        if(refineObj.compRat){
-          compRatio = refineObj.compRat;
-        };
-        if(refineObj.initRat){
-          initRatio = refineObj.initRat;
-        };
         if(refineObj.icuRat){
-          icuRatio = refineObj.icuRat;
-        };
+          refineObj.icuRat = refineObj.icuRat.toString();
+        }
         if(refineObj.bedRat){
-          bedRatio = refineObj.bedRat;
-        };
-
-        return [{compRatio:compRatio, initRatio:initRatio, icuRatio:icuRatio, bedRatio:bedRatio}];
-        
+          refineObj.bedRat = refineObj.bedRat.toString();
+        }
+        return [{compRatio:refineObj.compRat, initRatio:refineObj.initRat, icuRatio:refineObj.icuRat, bedRatio:refineObj.bedRat}];
     }
 }
 
