@@ -1,5 +1,12 @@
 import {recall} from './dataRecall.js';
 $(document).ready(function(){
+  
+  $.fn.digits = function(){ 
+    return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+}
+  
   let mapData;
   //loop through json file and assing each state a button with an id
   $.getJSON("/scripts/states.json", function(states){
@@ -43,12 +50,12 @@ $(document).ready(function(){
      $("#icu-cap-ratio").text(tarObj.ICUCapRatRl);
 
      //Metrics
-     $("#population").text(tarObj.Pop);
-     $("#cases").text(tarObj.Cases);
-     $("#deaths").text(tarObj.Deaths);
-     $("#vaccines-completed").text(tarObj.TotalVacc);
-     $("#new-cases").text(tarObj.NewCases);
-     $("#new-deaths").text(tarObj.NewDeaths);
+     $("#population").text(tarObj.Pop).digits();
+     $("#cases").text(tarObj.Cases).digits();
+     $("#deaths").text(tarObj.Deaths).digits();
+     $("#vaccines-completed").text(tarObj.TotalVacc).digits();
+     $("#new-cases").text(tarObj.NewCases).digits();
+     $("#new-deaths").text(tarObj.NewDeaths).digits();
 
     //  //Pie Chart
 
