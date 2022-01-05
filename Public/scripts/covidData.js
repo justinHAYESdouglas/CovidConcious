@@ -3,6 +3,8 @@ import {recall} from './dataRecall.js';
 
 let arrayExists = false;
 
+let countI = 0;
+
 let covidStates = [];
 let ReferenceUtcDate;
 
@@ -105,6 +107,12 @@ let submitInit = (arrayExists, data, phCheck) => {
     for( let i=0; i<data.length; i++ ) {
         covidSubmit(arrayExists, data[i], phCheck);
     }
+    console.log(countI);
+    console.log(phCheck.exists);
+    if(phCheck.exists == true){
+        cleanUpPlaceHolder(phCheck);
+        dayCheck();
+    };
 };
 
 // Either posts data from api query to DB, or updates existing data.
@@ -118,13 +126,9 @@ let covidSubmit = (arrayExists, data, phCheck) => {
             headers: {'Content-Type' : 'application/json'},
         })
         .then(response =>{
-
-            if(phCheck.exists == true && response.ok){
-                cleanUpPlaceHolder(phCheck);
-            };
-
             return response.json();
         })
+        countI++;
     } 
     
     else if(arrayExists == true){
@@ -151,8 +155,6 @@ let cleanUpPlaceHolder = (phCheck) => {
         console.log(res.json());
         console.log(deletePH);
     })
-
-    
     return phCheck.exists = false;
 }
 
