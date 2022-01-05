@@ -11,10 +11,10 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("Public"));
+app.use(express.static("public"));
 
 const sess = {
-  secret: "Capitalism is bad, mmmkay",
+  secret: "You have been cursed by Waluigi.",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -28,7 +28,7 @@ app.use('/', routes);
 app.use(session(sess));
 
 app.get('/', function(req, res, next) {
-  res.sendFile(__dirname + "/Public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 })
 
 sequelize.sync({ force: false }).then(function () {

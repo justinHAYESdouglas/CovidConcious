@@ -151,6 +151,8 @@ let cleanUpPlaceHolder = (phCheck) => {
         console.log(res.json());
         console.log(deletePH);
     })
+
+    
     return phCheck.exists = false;
 }
 
