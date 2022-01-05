@@ -18,8 +18,7 @@ $(document).ready(function(){
     //Link covid data to map buttons    
     async function initRetrieveData() {
       const dataArray = await recall.retrieveData();
-      console.log(dataArray);
-      if(dataArray.length > 0){
+      if(dataArray.length > 1){
         return mapData = dataArray;
       } else {
         initRetrieveData();
