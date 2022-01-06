@@ -96,25 +96,25 @@ $(document).ready(function(){
       .attr('id', 'vaccine-completed-ratio');
       let compRatElTitle = $('<h4></h4>')
       .addClass('graph-title')
-      .text('Completed Vaccine %');
+      .text('Completed Vaccine Population');
       let initRatEl = $('<div></div>')
       .addClass('chart')
       .attr('id', 'vaccine-initiated-to-complete');
       let initRatElTitle = $('<h4></h4>')
       .addClass('graph-title')
-      .text('Initiated Vaccine %');
+      .text('Initiated Vaccine Population');
       let icuRatEl = $('<div></div>')
       .addClass('chart')
       .attr('id', 'icu-cap-rat');
       let icuRatElTitle = $('<h4></h4>')
       .addClass('graph-title')
-      .text('ICU Beds Occupied %');
+      .text('ICU Beds Occupied');
       let bedRatEl = $('<div></div>')
       .addClass('chart')
       .attr('id', 'beds-used-rat');
       let bedRatElTitle = $('<h4></h4>')
       .addClass('graph-title')
-      .text('Hospital Beds Occupied %');
+      .text('Hospital Beds Occupied');
       $("#pie-chart-container-comp-vacc").append(compRatElTitle, compRatEl);
       $("#pie-chart-container-init-vacc").append(initRatElTitle, initRatEl);
       $("#pie-chart-container-icu-rat").append(icuRatElTitle, icuRatEl);
@@ -134,28 +134,31 @@ $(document).ready(function(){
      if(returnedData[0].compRatio != undefined){
       $("#pie-chart-container-comp-vacc").show();
       $("#vaccine-completed-ratio").attr("data-percent", returnedData[0].compRatio);
-      $("#vaccine-completed-ratio").text(returnedData[0].compRatio + "%");
+      $("#vaccine-completed-ratio").append("<span>"+returnedData[0].compRatio + "%"+"</span>");
+
      } else{
       $("#pie-chart-container-comp-vacc").hide();
      }
      if(returnedData[0].initRatio != undefined){
       $("#pie-chart-container-init-vacc").show();
       $("#vaccine-initiated-to-complete").attr("data-percent", returnedData[0].initRatio);
-      $("#vaccine-initiated-to-complete").text(returnedData[0].initRatio + "%");
+      $("#vaccine-initiated-to-complete").append("<span>"+returnedData[0].initRatio + "%"+"</span>");
      } else{
       $("#pie-chart-container-init-vacc").hide();
      }
      if(returnedData[0].icuRatio != undefined){
       $("#pie-chart-container-icu-rat").show();
       $("#icu-cap-rat").attr("data-percent", returnedData[0].icuRatio);
-      $("#icu-cap-rat").text(returnedData[0].icuRatio + "%");
+      $("#icu-cap-rat").append("<span>"+returnedData[0].icuRatio + "%"+"</span>")
+      
      } else{
       $("#pie-chart-container-icu-rat").hide();
      }
      if(returnedData[0].bedRatio != undefined){
       $("#pie-chart-container-bed-rat").show();
       $("#beds-used-rat").attr("data-percent", returnedData[0].bedRatio);
-      $("#beds-used-rat").text(returnedData[0].bedRatio + "%");
+      $("#beds-used-rat").append("<span>"+returnedData[0].bedRatio + "%"+"</span>");
+
      } else{
       $("#pie-chart-container-bed-rat").hide();
      }
@@ -164,9 +167,10 @@ $(document).ready(function(){
       trackColor: "#063977",
       barColor: "#8fd9e2",
       scaleColor: false,
-      lineWidth: 10,
-      lineCap: "butt",
-      animate: 1500
+      lineWidth: 15,
+      lineCap: "round",
+      animate: 1500,
+      size: 125
      });
     });
 

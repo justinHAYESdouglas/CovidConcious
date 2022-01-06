@@ -28,3 +28,18 @@ ul{
   --border-n-glow: blue;
   --bg-color: #000022;
 }
+
+footer{
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  position: relative;
+  bottom: 0;
+}
+
+footer p {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  color: var(--state-color);
+}

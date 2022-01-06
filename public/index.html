@@ -17,11 +17,15 @@
 <body>
   <main>
     <header>
-      <h1>Click a State for its Covid Stats</h1>
+      <h1>Covid Stats Dashboard</h1>
     </header>
 
+    <div id="subheader">
+      <h2>Click a State for its Covid Stats</h2>
+    </div>
+
     <div id="map-container"></div>
-    <h4 id = "state-name">State Name</h4>
+    <h4 id="state-name">State Name</h4>
     <div id="stats-wrapper">
 
       <div id="risk-container">
@@ -29,11 +33,11 @@
         <h3>3/5</h3>
 
         <ul id="risk-list">
-          <li>Case Density Ratio: <span id = "case-density"></span> </li>
-          <li>Test Positivity Ratio: <span id = "test-positivity-ratio"> </span></li>
-          <li>Contact Tracers: <span id = "contact-tracers"> </span></li>
-          <li>Infection Rate: <span id = "infection-rate"> </span></li>
-          <li>ICU Cap Ratio: <span id = "icu-cap-ratio"> </span></li>
+          <li>Case Density Ratio: <span id="case-density"></span> </li>
+          <li>Test Positivity Ratio: <span id="test-positivity-ratio"> </span></li>
+          <li>Contact Tracers: <span id="contact-tracers"> </span></li>
+          <li>Infection Rate: <span id="infection-rate"> </span></li>
+          <li>ICU Cap Ratio: <span id="icu-cap-ratio"> </span></li>
         </ul>
       </div>
 
@@ -44,15 +48,15 @@
 
           <div id="col-container">
             <ul id="left-col">
-              <li>Population: <span id = "population"> </span></li>
-              <li>Cases: <span id = "cases"> </span></li>
-              <li>Deaths: <span id = "deaths"> </span></li>
+              <li>Population: <span id="population"> </span></li>
+              <li>Cases: <span id="cases"> </span></li>
+              <li>Deaths: <span id="deaths"> </span></li>
             </ul>
 
             <ul id="right-col">
-              <li>Vaccines Completed: <span id = "vaccines-completed"> </span></li>
-              <li>New Cases: <span id = "new-cases"> </span></li>
-              <li>New Deaths: <span id = "new-deaths"> </span></li>
+              <li>Vaccines Completed: <span id="vaccines-completed"> </span></li>
+              <li>New Cases: <span id="new-cases"> </span></li>
+              <li>New Deaths: <span id="new-deaths"> </span></li>
             </ul>
           </div>
         </div>
@@ -75,15 +79,14 @@
   </main>
 
   <footer>
-    <p>The information included on this site is used for illustrative purposes only. The data contained herein do not
-      constitute financial advice or a pricing guarantee for any apartment.</p>
+    <p>Developed by <a href ="http://justinhayesdouglas.com/">Justin C. Hayes Douglas</a> &  <a href ="https://jjj-portfolio.herokuapp.com/">Jeremy J. Joanet </a> using the <a href = "https://covidactnow.org/data-api">Covid Act Now API</a> over a very long weekend</p>
   </footer>
-<script src="./scripts/map.js" type="module"></script>
-<script src="./scripts/pieCleanse.js" type="module"></script>
-<script src="./scripts/covidData.js" type="module"></script>
-<script src="./scripts/keys.js" type="module"></script>
-<script src="./scripts/dataRecall.js" type="module"></script>
-<script src="./scripts/pieChart.js"></script>
+  <script src="./scripts/map.js" type="module"></script>
+  <script src="./scripts/pieCleanse.js" type="module"></script>
+  <script src="./scripts/covidData.js" type="module"></script>
+  <script src="./scripts/keys.js" type="module"></script>
+  <script src="./scripts/dataRecall.js" type="module"></script>
+  <script src="./scripts/pieChart.js"></script>
 
 </body>
 
