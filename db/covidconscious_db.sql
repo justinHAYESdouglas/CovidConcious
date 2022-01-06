@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS livecheap_db;
-CREATE DATABASE livecheap_db;
+DROP DATABASE IF EXISTS covidconscious_db;
+CREATE DATABASE covidconscious_db;
 
-USE livecheap_db;
+USE covidconscious_db;
 
 CREATE TABLE CovidInfo(
 	Id INT,
