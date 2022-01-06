@@ -4,26 +4,20 @@ header{
   position: relative;
   margin: auto auto 50px auto;
   text-align: center;
-  border: 4px dotted var(--border-n-glow);
+  border-bottom: 4px dotted var(--border-n-glow);
 }
 
-header:after{
-  content:'';
-  display: block;
-  position: absolute;
-  width: 80%;
-  top: -5px;
-  right: 0px;
-  border: 5px solid var(--bg-color);
+#subheader{
+  width: 50%;
+  text-align: center;
+  margin: -35px auto 70px auto;
+  
 }
-header:before{
-  content:'';
-  display: block;
-  position: absolute;
-  width: 80%;
-  bottom: -5px;
-  left: 0px;
-  border: 5px solid var(--bg-color);
+
+#subheader h2{
+  border: none;
+  font-size: 1.3em;
+  
 }
 
 h1:before, h1:after{
@@ -35,22 +29,7 @@ h1{
   justify-content: center;
 }
 
-#pie-chart-container{
-  display: flex;
-  justify-content: space-around;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
 
-.graph-title{
-  text-align: center;
-}
-
-.chart{
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 10px;
-}
 
 #map-container{
   display: grid;
@@ -71,6 +50,7 @@ h1{
   color: var(--text-color);
   font-weight: bold;
   font-size: 1em;
+  box-shadow: -5px 5px 12px black;
 }
 
 #map-container button:hover, #map-container button:focus{
@@ -118,5 +98,6 @@ h1{
     font-size: .9em;
     border-radius: 10px;
     border: none;
+    box-shadow: none;
   }
 }

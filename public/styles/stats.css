@@ -28,6 +28,7 @@
 
 h2{
   font-size: 1.75em;
+  padding: 5px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.125);
 }
 
@@ -78,6 +79,10 @@ width: 70%;
   width: 50%;
 }
 
+li span{
+  color:var(--highlight);
+}
+
 #icu-beds-container{
   display: flex;
   flex-direction: column;
@@ -85,22 +90,38 @@ width: 70%;
 }
 
 #pie-chart-container{
+  display: grid;
+  grid-template-columns: auto auto;
   width: 100%;
+  text-align: center;
 }
 
-#place-holder-block{
-  width: 200px;
-  height: 200px;
-  margin: auto;
+#pie-chart-container *:not(canvas){
+  line-height: 0px !important;
 }
 
-#place-holder-block img{
+.pie-chart-parent{
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin: auto;
-  display: block;
+  padding-bottom: 15px;
 }
 
-footer{display: none}
+.pie-chart-parent h4{
+  padding: 15px 0;
+}
+
+.chart{
+ margin: auto;
+ z-index: 1;
+}
+
+.chart span{
+  position: relative;
+  font-size: 2em;
+  top: 68px;
+  left: 0;
+ }
 
 @media screen and (max-width: 1081px){
   #stats-wrapper{
@@ -115,4 +136,22 @@ footer{display: none}
   #stats-wrapper li{
     font-size: .97em ;
   }
+}
+
+@media screen and (max-width: 680px){
+  #pie-chart-container{
+    grid-template-columns: auto;
+  }
+
+  #col-container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #col-container ul{
+    width: 100%;
+    margin: auto;
+  }
+
+  
 }
