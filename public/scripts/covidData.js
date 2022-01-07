@@ -3,21 +3,21 @@ import {recall} from './dataRecall.js';
 
 let arrayExists = false;
 let covidStates = [];
-let ReferenceUtcDate;
+// let ReferenceUtcDate;
 let CovidInfo = 'https://api.covidactnow.org/v2/states.json?apiKey=' + ApiKeys.CovidApi;
 
 // Init function, checks if 1 day has passed to refresh data on a daily basis.
-let dayCheck = () => {
-    let date = new Date();
+// let dayCheck = () => {
+//     let date = new Date();
 
-    if (ReferenceUtcDate == ReferenceUtcDate != date.getUTCDate() || null || undefined ){
-        initRetrieveData();
-        return ReferenceUtcDate = date.getUTCDate();
-    }  else {
-        console.log("Same Day");
-        return;
-    }
-}
+//     if (ReferenceUtcDate == ReferenceUtcDate != date.getUTCDate() || null || undefined ){
+//         initRetrieveData();
+//         return ReferenceUtcDate = date.getUTCDate();
+//     }  else {
+//         console.log("Same Day");
+//         return;
+//     }
+// }
 
 let dataArrayPh = {};
 dataArrayPh.exists = false;
@@ -152,6 +152,8 @@ let cleanUpPlaceHolder = (phCheck) => {
 }
 
 // Init function.
-dayCheck();
+// dayCheck();
 
-setInterval(dayCheck, 43200000);
+initRetrieveData()
+
+// setInterval(dayCheck, 43200000);
